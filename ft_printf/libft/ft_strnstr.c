@@ -16,11 +16,9 @@ char	*ft_strnstr(const char *str1, const char *str2, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	size_t	c;
 
 	i = 0;
 	j = 0;
-	c = 0;
 	if (len < 0)
 		len = ft_strlen(str1);
 	if ((str2 == NULL || str1 == NULL) && len == 0)

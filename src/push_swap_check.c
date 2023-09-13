@@ -20,22 +20,28 @@ int check_same(int *nbrs, int count_nb)
 
 	same_nb = 0;
 	i = 0;
-	while (i < count_nb && !same_nb)
+	while (i < count_nb)
 	{	
 		j = i + 1;
-		while (j < count_nb && !same_nb)
+		while (j < count_nb)
 		{
 			if (nbrs[i] == nbrs[j])
-				same_nb = 1;
+			{
+				same_nb += 1;
+				if (same_nb == 1)
+					ft_printf("\033[38;2;255;0;0m/!\\ Numbers in double\033[0m:\n");
+				ft_printf("\033[43m%d\033[0m ", nbrs[i]);
+			}
 			j++;
 		}
 		i++;
 	}
-	if (same_nb == 1)
+	if (same_nb != 0)
 	{
-		free(nbrs);
 //		write(1, "\033[38;2;255;0;0muse different numbers\033[0m\n", 30);
-		ft_printf("\033[38;2;255;0;0muse different numbers\033[0m\n");
+//		ft_printf("\033[38;2;255;0;0m/!\\ Numbers in double\033[0m:\n");
+		free(nbrs);
+		ft_printf("\n");
 		return (0);
 	}
 	else
