@@ -51,11 +51,11 @@ GRAS		= \033[1m#				#
 SOULIGNE	= \033[4m#				#
 ITALIQUE	= \033[3m#				#
 #									#
-SPEED		= 0.02#					#
+SPEED		= 0.005#				#
 SPEED_W		= 0.005#				#
-SLEEP_SPEED = 0.1#					#
-SLEEP_SPD_X = 0.05#					#
-SLEEP_TEST  = 0.01#					#
+SLEEP_SPEED = 0.005#				#
+SLEEP_SPD_X = 0.005#				#
+SLEEP_TEST  = 0.001#				#
 FLASH_SPEED = 0.08#					#
 #									#
 V			= \xE2\x9C\x93# 	(✓)	#

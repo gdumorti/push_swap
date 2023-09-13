@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_error.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdumorti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 13:28:04 by gdumorti          #+#    #+#             */
-/*   Updated: 2023/08/22 13:28:06 by gdumorti         ###   ########.fr       */
+/*   Created: 2023/04/13 17:44:31 by gdumorti          #+#    #+#             */
+/*   Updated: 2023/05/02 17:07:49 by gdumorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdint.h>
-# include <limits.h>
-# include <stdio.h>
-# include "../ft_printf/libft/libft.h"
-# include "../ft_printf/include/ft_printf.h"
+#include "../include/push_swap.h"
 
-int		push_swap(int *nbrs);
-char	*ft_atoi_bis(const char *str);
-int 	ft_error(int x);
-
-
-#endif
+int ft_error(int x)
+{
+	if (x == 1)
+		ft_printf("Error, some parameters are not numbers:\n");
+	if (x == 2)
+		ft_printf("Error, some numbers are the same:\n");
+	if (x == 3)
+		ft_printf("Error, some parameters do not fit in an INT:\n");
+	return (0);
+}

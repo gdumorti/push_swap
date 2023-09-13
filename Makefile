@@ -3,14 +3,14 @@
 CC = gcc
 NAME = pushlibftprintf
 CFLAGS = -Wall -Werror -Wextra
-SRCS = push_swap_check.c
+SRCS = push_swap_check.c ft_atoi_bis.c ft_error.c
 SRC = $(addprefix src/, $(SRCS))
 OBJ = $(SRC:.c=.o)
 #
 #=========[ EXPECTED_FILES ]=========#
 #
 EXPECTED_FILES = c h
-EXPECTED_FILES_REPO1 = push_swap.c|push_swap_check.c
+EXPECTED_FILES_REPO1 = push_swap.c|push_swap_check.c|ft_atoi_bis.c|ft_error.c
 EXPECTED_FILES_REPO2 = push_swap.h
 EXPECTED_FILES_REPO3 = .c .h|Makefile
 EXPECTED_FILES_REPO4 = pdf
@@ -50,10 +50,10 @@ GRAS		= \033[1m#				#
 SOULIGNE	= \033[4m#				#
 ITALIQUE	= \033[3m#				#
 #									#
-SPEED		= 0.05#					#
-SLEEP_SPEED = 0.1#					#
-SLEEP_SPD_X = 0.05#					#
-SLEEP_TEST  = 0.01#					#
+SPEED		= 0.005#				#
+SLEEP_SPEED = 0.01#					#
+SLEEP_SPD_X = 0.005#				#
+SLEEP_TEST  = 0.001#				#
 FLASH_SPEED = 0.08#					#
 #									#
 V			= \xE2\x9C\x93# 	(✓)	#
