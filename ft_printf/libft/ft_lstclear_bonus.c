@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdumorti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,15 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-int ft_error(int x)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	if (x == 1)
-		ft_printf("Error, some parameters are not numbers:\n");
-	if (x == 2)
-		ft_printf("Error, some numbers are the same:\n");
-	if (x == 3)
-		ft_printf("Error, some parameters do not fit in an INT:\n");
-	return (0);
+	t_list	*ptr;
+	t_list	*tmp;
+
+	if (!lst || !*lst || !del)
+		return ;
+	tmp = NULL;
+	ptr = *lst;
+	while (ptr)
+	{
+		tmp = ptr->next;
+		ft_lstdelone(ptr, (*del));
+		ptr = tmp;
+	}
+	*lst = NULL;
 }

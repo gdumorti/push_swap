@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdumorti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,15 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-int ft_error(int x)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (x == 1)
-		ft_printf("Error, some parameters are not numbers:\n");
-	if (x == 2)
-		ft_printf("Error, some numbers are the same:\n");
-	if (x == 3)
-		ft_printf("Error, some parameters do not fit in an INT:\n");
-	return (0);
+	t_list	*ptr_lst;
+	t_list	*ptr_new;
+
+	if (!lst || !f || !del)
+		return (NULL);
+	ptr_lst = ft_lstnew(f(lst->content));
+	if (!(ptr_lst))
+		return (NULL);
+	lst = lst->next;
+	while (lst)
+	{
+		ptr_new = ft_lstnew(f(lst->content));
+		if (!(ptr_new))
+		{
+			ft_lstclear(&ptr_new, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&ptr_lst, ptr_new);
+		lst = lst->next;
+	}
+	return (ptr_lst);
 }

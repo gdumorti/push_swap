@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdumorti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,16 +9,12 @@
 /*   Updated: 2023/05/02 17:07:49 by gdumorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "../include/push_swap.h"
-
-int ft_error(int x)
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	if (x == 1)
-		ft_printf("Error, some parameters are not numbers:\n");
-	if (x == 2)
-		ft_printf("Error, some numbers are the same:\n");
-	if (x == 3)
-		ft_printf("Error, some parameters do not fit in an INT:\n");
-	return (0);
+	if (!alst || !new)
+		return ;
+	new->next = *alst;
+	*alst = new;
 }

@@ -127,7 +127,10 @@ COMPILE        = printf "$(JAUNE)$(PROCESS) " && \
 		sleep $(SPEED) && \
 		printf ".\033[0m\n" 
 #
-CHECK_PROGRESS = printf "\033[34m-------------------------\033[0m\n$(JAUNE)$(PROCESS) " && \
+CHECK_PROGRESS = printf "      $(BLEU)╔═════════════╗\n" && \
+		printf "      ║  $(DEF)$(ROSE)FT_PRINTF  $(BLEU)║\n" && \
+		printf "      $(BLEU)╚═════════════╝$(DEF)\n" && \
+		printf "$(JAUNE)$(PROCESS)" && \
 		sleep $(SPEED) && \
 		printf "C" && \
 		sleep $(SPEED) && \

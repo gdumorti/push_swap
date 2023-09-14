@@ -74,4 +74,5 @@ int	main(int argc, char **argv)
 	check_same(nbrs, count_nb);
 	return (0);
 }
- // verifier que arg depasse pas INT, transformer atoi en atol (peut-etre), utiliser printf a la place de ft_printf pour long
+ // utiliser printf a la place de ft_printf pour long
+ // retirer message d'erreur perso pour "Error"

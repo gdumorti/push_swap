@@ -219,11 +219,17 @@ CHECK_PROGRESS 		= printf "$(JAUNE)$(PROCESS) " && \
 #
 #===========================================#
 #
+#═╦══════════════════════════════╦═
 check-unexpected-files :
 	@echo "\n"
 	@$(CHECK_PROGRESS)
 	@printf '\033[1A\033[K'
-	@echo "\033[34m========[ CHECK ]========\n\n"
+	@echo "$(BLEU)╔═════════════════════════╗"
+	@echo "║ 	   $(DEF)CHECK $(BLEU)	  ║"
+	@echo "╚═════╦═════════════╦═════╝"
+	@echo "      ║  $(DEF)$(GRAS)$(ROSE)PUSH_SWAP $(DEF)$(BLEU) ║"
+	@echo "      ╚═════════════╝$(DEF)\n"
+	
 ifeq ($(strip $(UNEXPECTED_FILES_CMD)),)
 	@sleep $(SLEEP_SPEED)
 	@printf '\033[1A\033[K'
