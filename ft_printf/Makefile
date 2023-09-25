@@ -71,9 +71,9 @@ all : $(NAME)
 	@$(CC) -c $< $(CFLAGS) -I./include -o $@
 
 $(NAME) : $(OBJ)
+	@make -C libft
 	@ar -rcs $(NAME) $(OBJ)
 	@$(COMPILE)
-	@make -C libft
 	@sleep $(SLEEP_SPEED)
 	@printf '\033[1A\033[K'
 	@echo "$(VERT)$(V) compilation OK$(DEF)"

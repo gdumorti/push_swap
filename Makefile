@@ -3,7 +3,7 @@
 CC = gcc
 NAME = pushlibftprintf
 CFLAGS = -Wall -Werror -Wextra
-SRCS = push_swap_check.c ft_atoi_bis.c ft_error.c
+SRCS = push_swap_check.c push_swap.c ft_atoi_bis.c ft_error.c
 SRC = $(addprefix src/, $(SRCS))
 OBJ = $(SRC:.c=.o)
 #

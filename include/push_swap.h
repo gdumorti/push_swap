@@ -20,6 +20,20 @@
 # include "../ft_printf/libft/libft.h"
 # include "../ft_printf/include/ft_printf.h"
 
+/*définition type Booléen*/
+typedef enum
+{
+   false,
+   true
+}Bool;
+
+/*définition liste*/
+typedef struct s_stack
+{
+    int value;
+    struct s_stack* next;
+}t_stack;
+
 int		push_swap(int *nbrs);
 char	*ft_atoi_bis(const char *str);
 int 	ft_error(int x);
