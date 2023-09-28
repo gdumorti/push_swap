@@ -31,12 +31,16 @@ typedef enum
 typedef struct s_stack
 {
     int value;
+    int index;
     struct s_stack* next;
 }t_stack;
 
-int		push_swap(int *nbrs);
-char	*ft_atoi_bis(const char *str);
-int 	ft_error(int x);
+t_stack	    *ft_newstack_a(int i, int count_nb, int *nbrs);
+t_stack     *ft_newstack_b(void);
+int		    push_swap(int *nbrs, int count_nb);
+int	        ft_check(const char *str);
+int 	    ft_error(int x, int i, char j, char *k);
+int         ft_getindex(int *nbrs, int value, int count_nb);
 
 
 #endif

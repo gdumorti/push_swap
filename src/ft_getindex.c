@@ -1,26 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_getindex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdumorti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 13:54:42 by gdumorti          #+#    #+#             */
-/*   Updated: 2023/08/23 13:54:46 by gdumorti         ###   ########.fr       */
+/*   Created: 2023/09/25 14:29:46 by gdumorti          #+#    #+#             */
+/*   Updated: 2023/09/25 14:29:48 by gdumorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	push_swap(int *nbrs, int count_nb)
+int	ft_getindex(int *nbrs, int value, int count_nb)
 {
-	ft_printf("\033[38;2;0;255;0mOK\033[0m\n"); //print "OK"
-	int		i;
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	int	i;
+	int	j;
+	int	index;
 
 	i = 0;
-	stack_a = ft_newstack_a(i, count_nb, nbrs);
-	stack_b = ft_newstack_b();
-	return (0);
+	j = 0;
+	index = 0;
+	while (nbrs[i] != value)
+		i++;
+	while (j < count_nb)
+	{
+		if (nbrs[j] < nbrs[i])
+			index++;
+		j++;
+	}
+//	ft_printf("value = %d\n", value);
+	return (index);
 }
+/*while (nbrs[i] && nbrs[j])
+	{
+		while (nbrs[i] != value)
+			i++;
+		if (nbrs[j] < nbrs[i])
+			index++;
+		j++;
+	}
+	return (index);*/

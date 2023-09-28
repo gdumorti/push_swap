@@ -3,14 +3,14 @@
 CC = gcc
 NAME = pushlibftprintf
 CFLAGS = -Wall -Werror -Wextra
-SRCS = push_swap_check.c push_swap.c ft_atoi_bis.c ft_error.c
+SRCS = push_swap_check.c push_swap.c ft_check.c ft_error.c ft_getindex.c ft_create_list.c
 SRC = $(addprefix src/, $(SRCS))
 OBJ = $(SRC:.c=.o)
 #
 #=========[ EXPECTED_FILES ]=========#
 #
 EXPECTED_FILES = c h
-EXPECTED_FILES_REPO1 = push_swap.c|push_swap_check.c|ft_atoi_bis.c|ft_error.c
+EXPECTED_FILES_REPO1 = push_swap.c|push_swap_check.c|ft_check.c|ft_error.c|ft_getindex.c|ft_create_list.c
 EXPECTED_FILES_REPO2 = push_swap.h
 EXPECTED_FILES_REPO3 = .c .h|Makefile
 EXPECTED_FILES_REPO4 = pdf
