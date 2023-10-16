@@ -1,47 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_check.c                                  :+:      :+:    :+:   */
+/*   ft_fastswap_extend.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdumorti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 13:26:05 by gdumorti          #+#    #+#             */
-/*   Updated: 2023/08/22 13:26:09 by gdumorti         ###   ########.fr       */
+/*   Created: 2023/10/04 15:36:01 by gdumorti          #+#    #+#             */
+/*   Updated: 2023/10/04 15:36:02 by gdumorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	check_same(int *nbrs, int count_nb)
+void	ft_sa_ra(t_stack **stack_a)
 {
-	int	same_nb;
-	int	i;
-	int	j;
-
-	same_nb = 0;
-	i = 0;
-	while (i < count_nb)
-	{
-		j = i + 1;
-		while (j < count_nb)
-		{
-			if (nbrs[i] == nbrs[j])
-				return (ft_error(2, nbrs[i], 0, 0));
-			j++;
-		}
-		i++;
-	}
-	push_swap(nbrs, count_nb);
-	return (0);
+	ft_swap_a(stack_a);
+	ft_rotate_a(stack_a);
 }
 
-int	main(int argc, char **argv)
+void	ft_sa_rra(t_stack **stack_a)
 {
-	if (argc == 1)
-		return (0);
-	if (argc == 2)
-		ft_one_argument(argc, argv);
-	else
-		ft_more_argument(argc, argv);
-	return (0);
+	ft_swap_a(stack_a);
+	ft_reverse_rotate_a(stack_a);
 }

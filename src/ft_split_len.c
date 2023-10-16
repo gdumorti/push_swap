@@ -1,47 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_check.c                                  :+:      :+:    :+:   */
+/*   ft_split_len.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdumorti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 13:26:05 by gdumorti          #+#    #+#             */
-/*   Updated: 2023/08/22 13:26:09 by gdumorti         ###   ########.fr       */
+/*   Created: 2023/10/16 13:20:30 by gdumorti          #+#    #+#             */
+/*   Updated: 2023/10/16 13:20:31 by gdumorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	check_same(int *nbrs, int count_nb)
+int	ft_split_len(char **arg)
 {
-	int	same_nb;
 	int	i;
-	int	j;
 
-	same_nb = 0;
 	i = 0;
-	while (i < count_nb)
-	{
-		j = i + 1;
-		while (j < count_nb)
-		{
-			if (nbrs[i] == nbrs[j])
-				return (ft_error(2, nbrs[i], 0, 0));
-			j++;
-		}
+	while (arg[i])
 		i++;
-	}
-	push_swap(nbrs, count_nb);
-	return (0);
-}
-
-int	main(int argc, char **argv)
-{
-	if (argc == 1)
-		return (0);
-	if (argc == 2)
-		ft_one_argument(argc, argv);
-	else
-		ft_more_argument(argc, argv);
-	return (0);
+	return (i);
 }

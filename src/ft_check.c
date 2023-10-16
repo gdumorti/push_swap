@@ -27,7 +27,35 @@ long	atol_check(const char *str, int i, long b, int a)
 	return (b);
 }
 
-int	ft_check(const char *str)
+//meme que ft_check_onearg mais avec int *nbrs pour pouvoir le free
+int	ft_check(const char *str, int *nbrs)
+{
+	int		i;
+	int		a;
+	long	b;
+
+	i = 0;
+	b = 0;
+	a = 1;
+	if (str[i] != '\0')
+	{
+		while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+			i++;
+		if (str[i] == '-' || str[i] == '+')
+			if (str[i++] == '-')
+				a = -1;
+		b = atol_check(str, i, b, a);
+		if (b == -1)
+			return (free(nbrs), -1);
+		b = b * a;
+		if (b > INT_MAX || b < INT_MIN)
+			return (free(nbrs), 0);
+		return (1);
+	}
+	return (0);
+}
+
+int	ft_check_onearg(const char *str)
 {
 	int		i;
 	int		a;
@@ -51,8 +79,5 @@ int	ft_check(const char *str)
 			return (0);
 		return (1);
 	}
-	return (0);
+	return (-2);
 }
-
-/*printf("b = %ld", b);
-			printf("INT_MIN = %i\n", INT_MIN);*/

@@ -1,16 +1,16 @@
 #===========[ VARIABLE ]============#
 #
 CC = gcc
-NAME = pushlibftprintf
-CFLAGS = -Wall -Werror -Wextra
-SRCS = push_swap_check.c push_swap.c ft_check.c ft_error.c ft_getindex.c ft_create_list.c
+NAME = push_swap
+CFLAGS = -Wall -Werror -Wextra -g3 #-fsanitize=address
+SRCS = push_swap_check.c push_swap.c ft_check.c ft_error.c ft_getindex.c ft_create_list.c ft_move_top.c ft_move_rot.c ft_move_swap.c ft_fastswap.c ft_fastswap_extend.c ft_radix.c ft_get_lstsize.c ft_check_split.c ft_split_len.c ft_nbargument.c
 SRC = $(addprefix src/, $(SRCS))
 OBJ = $(SRC:.c=.o)
 #
 #=========[ EXPECTED_FILES ]=========#
 #
 EXPECTED_FILES = c h
-EXPECTED_FILES_REPO1 = push_swap.c|push_swap_check.c|ft_check.c|ft_error.c|ft_getindex.c|ft_create_list.c
+EXPECTED_FILES_REPO1 = push_swap.c|push_swap_check.c|ft_check.c|ft_error.c|ft_getindex.c|ft_create_list.c|ft_move_top.c|ft_fastswap.c|ft_move_rot.c|ft_move_swap.c|ft_fastswap_extend.c|ft_radix.c|ft_get_lstsize.c|ft_check_split.c|ft_split_len.c|ft_nbargument.c
 EXPECTED_FILES_REPO2 = push_swap.h
 EXPECTED_FILES_REPO3 = .c .h|Makefile
 EXPECTED_FILES_REPO4 = pdf
@@ -31,43 +31,43 @@ UNEXPECTED_FILES_CMD_REPO3 = $(shell ls -1 $(REPO3) | grep -vE '$(EXPECTED_FILES
 UNEXPECTED_FILES_CMD_REPO4 = $(shell ls -1 $(REPO4) | grep -vE '$(EXPECTED_FILES_REPO4)')
 #
 #=============[ Custom ]============#
-#								    #
-DEF			= \033[0m#			    #
-ROUGE 		= \033[38;2;255;0;0m#   #
-VERT 		= \033[38;2;0;255;0m#   #
-JAUNE 		= \033[33m#			    #
-BLEU 		= \033[34m#			    #
-MAGENTA 	= \033[38;2;255;38;253m##	
-ROSE 	    = \033[38;2;255;155;254m#
-CYAN		= \033[36m#			    #
-BLANC		= \033[37m#			    #
-NOIR		= \033[30m#				#
-#								    #
-BG_ROUGE 	= \033[41m#			    #
-BG_BLANC	= \033[47m#				#
-#									#
-GRAS		= \033[1m#				#
-SOULIGNE	= \033[4m#				#
-ITALIQUE	= \033[3m#				#
-#									#
-SPEED		= 0.005#				#
-SLEEP_SPEED = 0.01#					#
-SLEEP_SPD_X = 0.005#				#
-SLEEP_TEST  = 0.001#				#
-FLASH_SPEED = 0.08#					#
-#									#
-V			= \xE2\x9C\x93# 	(✓)	#
-WARNING		= \xE2\x9A\xA0# 	(⚠)	#
-X 			= \xE2\x9C\x97# 	(✗)	#
-PROCESS		= \xF0\x9F\x94\x84# (🔄)#
-#									#
+#																    #
+DEF					= \033[0m#			  		  #
+ROUGE 			= \033[38;2;255;0;0m#   #
+VERT 				= \033[38;2;0;255;0m#   #
+JAUNE 			= \033[33m#			  			#
+BLEU 				= \033[34m#			    		#
+MAGENTA 		= \033[38;2;255;38;253m##	
+ROSE 	    	= \033[38;2;255;155;254m#
+CYAN				= \033[36m#			    		#
+BLANC				= \033[37m#			    		#
+NOIR				= \033[30m#							#
+#								    								#
+BG_ROUGE 		= \033[41m#			    		#
+BG_BLANC		= \033[47m#							#
+#																		#
+GRAS				= \033[1m#							#
+SOULIGNE		= \033[4m#							#
+ITALIQUE		= \033[3m#							#
+#																		#
+SPEED				= 0.005#								#
+SLEEP_SPEED = 0.01#									#
+SLEEP_SPD_X = 0.005#								#
+SLEEP_TEST  = 0.001#								#
+FLASH_SPEED = 0.08#									#
+#																		#
+V						= \xE2\x9C\x93# 	(✓)		#
+WARNING			= \xE2\x9A\xA0# 	(⚠)		#
+X 					= \xE2\x9C\x97# 	(✗)		#
+PROCESS			= \xF0\x9F\x94\x84# (🔄)#
+#																		#
 #===================================#
 #
 #
 
 $(NAME) :
 	@make -C ft_printf
-	@gcc $(CFLAGS) $(SRC) -o $(NAME) libftprintf.a
+	@gcc $(CFLAGS) $(SRC) -o $(NAME) push_swap.a
 	@sleep $(SLEEP_SPEED)
 	@printf '\033[1A\033[K'
 	@echo "$(VERT)$(V) compilation OK$(DEF)"
@@ -297,7 +297,7 @@ endif
 #
 clean :
 	@rm -rf $(OBJ)
-#	@make clean -C ft_printf
+	@make clean -C ft_printf
 #	@echo "$(VERT)$(V) cleaning OK$(DEF)"
 
 fclean : clean
