@@ -59,7 +59,7 @@ int	ft_one_argument(int argc, char **argv)
 		if (ft_check_onearg(arg[i]) == -1)
 			return (free_memory(arg, nbrs));
 		if (ft_check_onearg(arg[i]) == 0)
-			return (ft_error(3, 0, 0, arg[i]), free_memory(arg, nbrs));
+			return (ft_error(), free_memory(arg, nbrs));
 		nbrs[i] = ft_atoi(arg[i]);
 		i++;
 	}
@@ -87,7 +87,7 @@ int	ft_more_argument(int argc, char **argv)
 		if (ft_check(argv[i + 1], nbrs) == -1)
 			return (0);
 		if (ft_check(argv[i + 1], nbrs) == 0)
-			return (ft_error(3, 0, 0, argv[i + 1]));
+			return (ft_error());
 		nbrs[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}

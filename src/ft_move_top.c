@@ -30,7 +30,7 @@ t_stack	*ft_pull_stack(t_stack *top_stack)
 
 	if (top_stack == NULL)
 	{
-		ft_error(4, 0, 0, NULL);
+		ft_error();
 		return (top_stack);
 	}
 	tmp = top_stack;

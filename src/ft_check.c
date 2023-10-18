@@ -23,7 +23,7 @@ long	atol_check(const char *str, int i, long b, int a)
 			return (-1);
 	}
 	if (str[i] != '\0')
-		return (ft_error(1, 0, str[i], 0));
+		return (ft_error());
 	return (b);
 }
 

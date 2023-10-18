@@ -32,7 +32,7 @@ t_stack				*ft_newstack_b(void);
 int					push_swap(int *nbrs, int count_nb);
 int					ft_check(const char *str, int *nbrs);
 int					ft_check_onearg(const char *str);
-int					ft_error(int x, int i, char j, char *k);
+int					ft_error(void);
 int					ft_getindex(int *nbrs, int value, int count_nb);
 t_stack				*ft_push_stack(t_stack *top_stack, int index);
 t_stack				*ft_pull_stack(t_stack *top_stack);

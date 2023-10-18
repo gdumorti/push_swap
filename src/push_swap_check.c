@@ -26,7 +26,7 @@ int	check_same(int *nbrs, int count_nb)
 		while (j < count_nb)
 		{
 			if (nbrs[i] == nbrs[j])
-				return (ft_error(2, nbrs[i], 0, 0));
+				return (ft_error());
 			j++;
 		}
 		i++;
